@@ -34,7 +34,7 @@ function waterfall(){
 				'top':minH+'px',
 				'left':minHIndex*w+'px',
 			})
-			hArr[minHIndex]+=$boxs.eq(index).outerHeight();
+			hArr[minHIndex]+=$boxs.eq(index).outerHeight();//修改数组，避免图片重叠
 		}
 
 	})
