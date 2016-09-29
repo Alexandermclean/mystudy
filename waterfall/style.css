@@ -1,0 +1,21 @@
+*{
+	margin:0;
+	padding: 0;
+}
+#main{
+	position: relative;
+}
+.box{
+	padding: 15px 0 0 15px;/*用padding方便后续取box的高度*/
+	float: left;
+}
+.pic{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #ccc;
+	padding: 10px;
+}
+.pic img{
+	width: 165px;
+	height: auto;
+}
