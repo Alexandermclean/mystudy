@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计时器</title>
+	<script type="text/javascript">
+	function toStr(i){
+		if(i<10){
+			return '0'+i;
+		}
+		else{
+			return ''+i;
+		}
+	};
+	function Time(){
+		var oDate=new Date();
+		var str=toStr(oDate.getHours())+toStr(oDate.getMinutes())+toStr(oDate.getSeconds());
+		//console.log(str);
+		var aImg=document.getElementsByTagName('img');
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].src=str.charAt(i)+'.png';	
+		}
+	};
+	window.onload=function(){
+		setInterval(Time,1000);
+		Time();
+	};
+	</script>
+</head>
+<body style="background:black; color:white; font-size:50px">
+	<img src="0.png">
+	<img src="0.png">
+	:
+	<img src="0.png">
+	<img src="0.png">
+	:
+	<img src="0.png">
+	<img src="0.png">
+</body>
+</html>

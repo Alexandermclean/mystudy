@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css函数</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementById("div1");
+		function css(obj,name,value){//封装成getStyle()函数
+			if(arguments.length==2){
+				if(obj.currentStyle){
+					return obj.currentStyle[name];//兼容IE
+				}
+				else{
+					return getComputedStyle(obj,false)[name];//兼容FF
+				}
+			}
+			else{
+				if(obj.currentStyle){
+					obj.currentStyle[name]=value;
+				}
+				else{
+					getComputedStyle(obj,false)[name]=value;//GET函数第二个参数随机
+				}
+			}
+		}
+		alert(css(oDiv,'background-color'));
+	};
+	</script>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

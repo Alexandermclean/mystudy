@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css函数</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementById("div1");
+		//alert(oDiv.style.width);
+		function css(obj,name,value){
+			if (arguments.length==2) {
+				alert(obj.style[name]);//oDiv.style只能操作行间样式
+			}
+			else{
+				obj.style[name]=value;
+			}
+		}
+		css(oDiv,'width');
+		css(oDiv,'background-color','green');
+	};
+	</script>
+</head>
+<body>
+	<div id="div1" style="width: 200px;
+			height: 100px;
+			background: red"></div>
+</body>
+</html>

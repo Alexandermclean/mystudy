@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>arguments</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			function sum(){
+				//alert(arguments.length)==3;//arguments里面存的是函数参数的数组
+				var result=0;
+				for(var i=0;i<arguments.length;i++){
+					result=result+arguments[i];
+				}
+				return result;
+			}
+			alert(sum(1,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3,2,3))
+		};
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
