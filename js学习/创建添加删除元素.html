@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建添加删除元素</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById('btn1');
+			var oUl=document.getElementById('ul1');
+			var aLi=oUl.getElementsByTagName('li')
+			var oTxt=document.getElementById('txt1');
+			oBtn.onclick=function(){
+				var oLi=document.createElement('li');
+				var aA=document.createElement('a');
+				//oUl.appendChild(oLi);在列表最后添加元素
+				oLi.innerHTML=oTxt.value;
+				if(aLi.length>0){
+					oUl.insertBefore(oLi,aLi[0]);
+				}
+				else{
+					oUl.appendChild(oLi);
+				}
+			};
+
+			var oUl2=document.getElementById('ul2');
+			var oLi2=oUl2.getElementsByTagName('li');
+			var aA=oUl2.getElementsByTagName('a');
+			for(var i=0;i<aA.length;i++){
+				aA[i].onclick=function(){
+					oUl2.removeChild(this.parentNode);
+				}
+			};
+
+		};
+	</script>
+</head>
+<body>
+	<input id="txt1" type="text">
+	<input id="btn1" type="button" value="创建">
+	<ul id="ul1"></ul>
+	<ul id="ul2">
+		<li>djqwnhjhq<a href="javascript:;">删除</a></li>
+		<li>djqkfehjhq<a href="javascript:;">删除</a></li>
+		<li>dcfd<a href="javascript:;">删除</a></li>
+		<li>djqw212q<a href="javascript:;">删除</a></li>
+	</ul>
+</body>
+</html>

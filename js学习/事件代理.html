@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格添加删除</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oTab=document.getElementById('tab');
+		var oTb=oTab.getElementsByTagName('tbody')[0];
+		var oTr=oTb.getElementsByTagName('tr');
+		var aA=oTb.getElementsByTagName('a');
+		var oldcolor='';//声明一个变量储存表格行的原颜色，方便mouseout的时候变回
+		var id=oTr.length+1;//声明一个变量储存id，通过id++；防止id被删除后重用
+		var oBtn=document.getElementById('btn1');
+		var oName=document.getElementById('name');
+		var oAge=document.getElementById('age');
+		oBtn.onclick=function(){
+			var oaTr=document.createElement('tr');
+			var oaTd=document.createElement('td');
+			oaTd.innerHTML=id++;
+			oaTr.appendChild(oaTd);
+			var oaTd=document.createElement('td');
+			oaTd.innerHTML=oName.value;
+			oaTr.appendChild(oaTd);
+			var oaTd=document.createElement('td');
+			oaTd.innerHTML=oAge.value;
+			oaTr.appendChild(oaTd);
+			var oaTd=document.createElement('td');
+			oaTd.innerHTML='<a href="javascript:;">删除</a>';
+			oaTr.appendChild(oaTd);
+			oTb.appendChild(oaTr);
+		};
+
+		oTb.addEventListener("mouseover",function(e){
+			if(e.target&&e.target.nodeName.toLowerCase()=='td'){
+				oldcolor=e.target.parentNode.style.background;
+				e.target.parentNode.style.background='yellow';
+				//console.log("yuhui");
+			}
+			//console.log(e.target.parentNode.style.background);
+		})
+		oTb.addEventListener("mouseout",function(e){
+				if(e.target&&e.target.nodeName.toLowerCase()=='td'){
+				e.target.parentNode.style.background=oldcolor;
+				//console.log("yuhui");
+			}	
+		})
+
+				for(var i=0;i<oTr.length;i++){
+					if(i%2==0){
+						oTr[i].style.background='#ccc';
+					}
+					else{
+						oTr[i].style.background='';
+					}
+				}
+				// 	oTr[i].onmouseover=function(){
+				// 		oldcolor=this.style.background;
+				// 		this.style.background='yellow';
+				// 	};
+				// 	oTr[i].onmouseout=function(){
+				// 		this.style.background=oldcolor;
+				// 	};
+				// }
+
+				for(var j=0;j<aA.length;j++){
+					aA[j].onclick=function(){
+						oTb.removeChild(this.parentNode.parentNode);
+					};
+				}
+	};
+	</script>
+</head>
+<body>
+	姓名<input type="text" id="name">年龄<input type="text" id="age">
+	<input type="button" id="btn1" value="添加"><br><br>
+	姓名<input type="text" id="search">
+	<input type="button" id="btn2" value="搜索">
+	<table border="1px" width="500px" id="tab">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody id="tb">
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>22</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>张三</td>
+				<td>23</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>25</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王五</td>
+				<td>26</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>张伟</td>
+				<td>27</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
