@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体运动</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 100px;
+			background: red;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div');
+		for(var i=0;i<oDiv.length;i++){
+			oDiv[i].timer=null;//为div添加一个属性timer，让每个div有自己的timer;
+			oDiv[i].onmouseover=function(){
+				starMove(this,400);//用this指向当前的div，不能用oDiv[i];
+			}
+			oDiv[i].onmouseout=function(){
+				starMove(this,200);
+			}
+		}
+	};
+	//var timer=null;//多物体运动不能公用同一个定时器
+	function starMove(obj,iTarget){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var speed=(iTarget-obj.offsetWidth)/6;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.offsetWidth==iTarget){
+				clearInterval(obj.timer);
+			}
+			else {
+				obj.style.width=obj.offsetWidth+speed+'px';
+			}
+		},30);
+
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>

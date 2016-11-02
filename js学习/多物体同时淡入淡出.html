@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多物体运动</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin-left: 20px;
+			float: left;
+			opacity: 0.3;
+			filter:alpha(opacity:30);
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div');
+		for(var i=0;i<oDiv.length;i++){
+			oDiv[i].timer=null;//为div添加一个属性timer，让每个div有自己的timer;
+			oDiv[i].alpha=30;
+			oDiv[i].onmouseover=function(){
+				starMove(this,100);//用this指向当前的div，不能用oDiv[i];
+			}
+			oDiv[i].onmouseout=function(){
+				starMove(this,30);
+			}
+		}
+	};
+	//var timer=null;//多物体运动不能公用同一个定时器
+	//var alpha=30;//多物体运动不能公用同一个定时器alpha,导致混乱= =
+	function starMove(obj,iTarget){
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var speed=(iTarget-obj.alpha)/6;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(obj.alpha==iTarget){
+				clearInterval(obj.timer);
+			}
+			else {
+				obj.alpha+=speed;
+				obj.style.opacity=obj.alpha/100;
+				obj.style.filter='alpha(opacity:'+obj.alpha+')';
+			}
+		},30);
+
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+</body>
+</html>

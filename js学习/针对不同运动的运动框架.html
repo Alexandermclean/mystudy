@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>针对不同运动的运动框架</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 100px;
+			background: red;
+			margin-left: 20px;
+			float: left;
+			border: 10px solid black;
+			font-size: 14px;
+		}
+		#div4{
+			width: 200px;
+			height: 100px;
+			background: red;
+			margin-left: 20px;
+			float: left;
+			border: 10px solid black;
+			font-size: 14px;
+			opacity: 0.3;
+			filter:alpha(opacity:30);
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		oDiv1.onmouseover=function(){
+			starMove(this,'height',400);
+		}
+		oDiv1.onmouseout=function(){
+			starMove(this,'height',100);
+		}
+		var oDiv2=document.getElementById('div2');
+		oDiv2.onmouseover=function(){
+			starMove(this,'width',400);
+		}
+		oDiv2.onmouseout=function(){
+			starMove(this,'width',200);
+		}
+		var oDiv3=document.getElementById('div3');
+		oDiv3.onmouseover=function(){
+			starMove(this,'fontSize',50);
+		}
+		oDiv3.onmouseout=function(){
+			starMove(this,'fontSize',14);
+		}
+		var oDiv4=document.getElementById('div4');
+		oDiv4.onmouseover=function(){
+			starMove(this,'opacity',100);
+		}
+		oDiv4.onmouseout=function(){
+			starMove(this,'opacity',30);
+		}
+		// for(var i=0;i<oDiv.length;i++){
+		// 	oDiv[i].timer=null;//为div添加一个属性timer，让每个div有自己的timer;
+		// 	oDiv[i].onmouseover=function(){
+		// 		starMove(this,400);//用this指向当前的div，不能用oDiv[i];
+		// 	}
+		// 	oDiv[i].onmouseout=function(){
+		// 		starMove(this,200);
+		// 	}
+		// }
+	};
+	//var timer=null;//多物体运动不能公用同一个定时器
+	function getStyle(obj,name){//获取当前对象的name属性的值,非行间属性！！
+		if(obj.currentStyle){
+			return obj.currentStyle[name];
+		}
+		else {
+			return getComputedStyle(obj,false)[name];
+		}
+	}
+	function starMove(obj,attr,iTarget){//对象、属性、运动到的位置
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var cur=0;
+			if(attr=='opacity'){
+				cur=parseFloat(getStyle(obj,attr))*100;//opacity的style值就是0.几，乘上100方便运算
+			}
+			else{
+				cur=parseInt(getStyle(obj,attr));
+			}
+			var speed=(iTarget-cur)/6;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(cur==iTarget){
+				clearInterval(obj.timer);
+			}
+			else {
+				if(attr=='opacity'){
+					obj.style.opacity=(cur+speed)/100;
+					obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+				}
+				else{
+					obj.style[attr]=cur+speed+'px';
+				}
+			}
+		},30);
+
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">变高</div>
+	<div id="div2">变宽</div>
+	<div id="div3">余政辉</div>
+	<div id="div4"></div>
+</body>
+</html>
