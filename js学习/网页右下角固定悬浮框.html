@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页右下角固定悬浮框</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#div1{
+			width: 150px;
+			height: 200px;
+			background-color: green;
+			position: absolute;
+			right:  0px;
+			bottom: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onscroll=function(){
+		var oDiv=document.getElementById('div1');
+		var ScrollTop=document.documentElement.scrollTop||document.body.scrollTop;//获取滚动条滚动的距离
+		//oDiv.style.top=document.documentElement.clientHeight-oDiv.offsetHeight+ScrollTop+'px';
+		//可视窗口的高度-div的高度+滚动条滚动的距离;得到的就是要想div保持右下角需要的top值
+		startmove(document.documentElement.clientHeight-oDiv.offsetHeight+ScrollTop);
+	};
+	var timer=null;
+	function startmove(iTarget){
+		var oDiv=document.getElementById('div1');
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var speed=(iTarget-oDiv.offsetTop)/10;//oDiv.offsetTop是滚动条滚动之后当前div距离顶部的距离
+			//speed=Math.ceil(speed);
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			oDiv.style.top=oDiv.offsetTop+speed+'px';
+		},30);
+	}
+	</script>
+</head>
+<body style="height:2000px;">
+	<div id="div1"></div>
+</body>
+</html>

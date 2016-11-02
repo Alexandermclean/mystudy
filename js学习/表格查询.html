@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格添加删除</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oTab=document.getElementById('tab');
+		var oTb=oTab.getElementsByTagName('tbody')[0];
+		var oTr=oTb.getElementsByTagName('tr');
+		var oSearch=document.getElementById('search');
+		var oBtn=document.getElementById('btn2');
+		oBtn.onclick=function(){
+			for(var i=0;i<oTr.length;i++){
+				oTr[i].style.background='';
+				var strSearch=oSearch.value.toLowerCase();
+				var strTab=oTr[i].cells[1].innerHTML.toLowerCase();
+				var arr=strSearch.split(' ');
+				//console.log(strSearch);
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]==''){
+						oTr[i].style.background='';
+						alert('请输入用户姓名');
+					}
+					else if(strTab.search(arr[j])!=-1){
+						oTr[i].style.background='green';
+					}
+				}
+				//if(strTab.search(strSearch)!=-1){
+				//	oTr[i].style.background='green';
+				//}
+				//if(strSearch==strTab){
+					//oTr[i].style.background='green';
+				//}
+				
+			}
+		};
+	};
+	</script>
+</head>
+<body>
+	姓名<input type="text" id="search">
+	<input type="button" id="btn2" value="搜索">
+	<table border="1px" width="500px" id="tab">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody id="tb">
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>22</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>张三</td>
+				<td>23</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>李四</td>
+				<td>25</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>王五</td>
+				<td>26</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>张伟</td>
+				<td>27</td>
+				<td><a href="javascript:;">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

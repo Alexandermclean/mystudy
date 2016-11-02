@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单运动</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#div1{
+			width: 150px;
+			height: 200px;
+			background-color: green;
+			position: absolute;
+			left: -150px;
+			/*left: 20px;*/
+		}
+		#div1 span{
+			position: absolute;
+			width: 20px;
+			height: 60px;
+			line-height: 20px;
+			background-color: blue;
+			top: 70px;
+			right: -20px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv=document.getElementById('div1');
+		oDiv.onmouseover=function(){
+			startmove(0);
+		}
+		oDiv.onmouseout=function(){
+			startmove(-150);
+		}
+	};
+	var timer=null;
+	function startmove(iTarget){
+		var speed=0;
+		var oDiv=document.getElementById('div1');
+		if(iTarget<0){
+			speed=-10;
+		}
+		else{
+			speed=10;
+		}
+		clearInterval(timer);
+		timer=setInterval(function(){
+			if(oDiv.offsetLeft==iTarget){
+				clearInterval(timer);
+			}
+			else{
+				oDiv.style.left=oDiv.offsetLeft+speed+'px';
+			}
+		},30);
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<span>分享到</span>
+	</div>
+</body>
+</html>
