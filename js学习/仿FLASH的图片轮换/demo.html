@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿FLASH的图片轮换</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="move1(obj,attr,iTarget).js"></script>
+	<script type="text/javascript">
+		function getByClass(oParent,sClass){
+			var aEle=oParent.getElementsByTagName('*');
+			var aResult=[];
+			for(var i=0;i<aEle.length;i++){
+				if(aEle[i].className==sClass){
+					aResult.push(aEle[i]);
+				}
+			}
+			return aResult;
+		}
+
+		window.onload=function(){
+			var oDiv=document.getElementById('playimages');
+			var oBigPic=getByClass(oDiv,'big_pic')[0];
+			var oBtnPrev=getByClass(oDiv,'prev')[0];
+			var oBtnNext=getByClass(oDiv,'next')[0];
+			var oMarkLeft=getByClass(oDiv,'mark_left')[0];
+			var oMarkRigt=getByClass(oDiv,'mark_right')[0]; 
+			//左右按钮的出现和消失
+			oBtnPrev.onmouseover=oMarkLeft.onmouseover=function(){
+				starMove(oBtnPrev,'opacity',100);
+			}
+			oBtnPrev.onmouseout=oMarkLeft.onmouseout=function(){
+				starMove(oBtnPrev,'opacity',0);
+			}
+			oBtnNext.onmouseover=oMarkRigt.onmouseover=function(){
+				starMove(oBtnNext,'opacity',100);
+			}
+			oBtnNext.onmouseout=oMarkRigt.onmouseout=function(){
+				starMove(oBtnNext,'opacity',0);
+			}
+			
+			var nowZIndex=2;//图片的层级
+			var now=0;//定义变量存储当前展示图片的index属性，防止再次点击此图片时重新加载
+			var oDivSmall=getByClass(oDiv,'small_pic')[0];
+			var oSmallUl=oDivSmall.getElementsByTagName('ul')[0];
+			var aLiSmall=oDivSmall.getElementsByTagName('li');
+			var oUl=getByClass(oDiv,'big_pic')[0];
+			var aLiBig=oUl.getElementsByTagName('li');
+			oSmallUl.style.width=aLiSmall.length*aLiSmall[0].offsetWidth+'px';
+
+			for(var i=0;i<aLiSmall.length;i++){
+				aLiSmall[i].index=i;
+
+		function tab(){//单独拎出来封装一个函数，执行的就是要展示的图片下的小图片深淡变化和小图滚动
+			aLiBig[now].style.zIndex=nowZIndex++;
+			aLiBig[now].style.height=0;
+			starMove(aLiBig[now],'height',320);
+			for(var j=0;j<aLiSmall.length;j++){
+				starMove(aLiSmall[j],'opacity',60);
+			}
+			starMove(aLiSmall[now],'opacity',100);
+			if(now==0){
+				starMove(oSmallUl,'left',0)
+			}
+			else if (now==aLiSmall.length-1) {
+				starMove(oSmallUl,'left',-(now-2)*aLiSmall[0].offsetWidth);
+			}
+			else{
+				starMove(oSmallUl,'left',-(now-1)*aLiSmall[0].offsetWidth);
+			}
+		}
+
+				//点击小图，大图切换
+				aLiSmall[i].onclick=function(){
+					if(now==this.index) return;
+					now=this.index;
+					tab();
+					// aLiBig[this.index].style.zIndex=nowZIndex++;
+					// aLiBig[this.index].style.height=0;
+					// starMove(aLiBig[this.index],'height',320);
+					// for(var j=0;j<aLiSmall.length;j++){
+					// 	 starMove(aLiSmall[j],'opacity',60);
+					// }
+					// starMove(this,'opacity',100);
+
+				};
+
+				aLiSmall[i].onmouseover=function(){
+					starMove(this,'opacity',100);
+				};
+				aLiSmall[i].onmouseout=function(){
+					if(now!=this.index){//判断移入移出当前展示图片的时候小图不变淡
+						starMove(this,'opacity',60);
+					}
+				};
+
+				//按钮点击切换图片
+				oBtnPrev.onclick=function(){
+					now--;
+					if(now==-1){
+						now=aLiSmall.length-1;
+					}
+					tab();
+				};
+				oBtnNext.onclick=function(){
+					now++;
+					if(now==aLiSmall.length){
+						now=0;
+					}
+					tab();
+				};
+			}
+			var timer=setInterval(oBtnNext.onclick,2000);//自动播放
+			oBigPic.onmouseover=function(){
+				clearInterval(timer);
+			}
+			oBigPic.onmouseout=function(){
+				timer=setInterval(oBtnNext.onclick,2000);
+			}
+
+		};
+	</script>
+</head>
+<body>
+	<div id="playimages" class="play">
+	    <ul class="big_pic">
+
+			<div class="prev"></div><!-- <=按钮 -->
+			<div class="next"></div><!-- =>按钮 -->
+
+			<div class="text">加载图片说明……</div>
+			<div class="length">计算图片数量……</div>
+			
+			<a class="mark_left" href="javascript:;"></a><!-- 左遮罩层 -->
+			<a class="mark_right" href="javascript:;"></a><!-- 右遮罩层 -->
+			<div class="bg"></div>
+			
+	        <li style="z-index:1;"><img src="images/1.jpg" /></li>
+	        <li><img src="images/2.jpg" /></li>
+	        <li><img src="images/3.jpg" /></li>
+	        <li><img src="images/4.jpg" /></li>
+	        <li><img src="images/5.jpg" /></li>
+	        <li><img src="images/6.jpg" /></li>
+	    </ul>
+	    <div class="small_pic">
+	        <ul style="width:390px;">
+	            <li style="filter: 100; opacity: 1;"><img src="images/1.jpg" /></li>
+	            <li><img src="images/2.jpg" /></li>
+	            <li><img src="images/3.jpg" /></li>
+	            <li><img src="images/4.jpg" /></li>
+	            <li><img src="images/5.jpg" /></li>
+	            <li><img src="images/6.jpg" /></li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+</html>
