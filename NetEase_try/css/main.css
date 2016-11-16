@@ -1,0 +1,249 @@
+/*公用*/
+.comWidth{
+	width: 1206px;
+	margin: 0 auto;
+}
+/*信息提示栏*/
+.header{
+	height: 125px;
+}
+.info{
+	height: 36px;
+	background-color: #f3f3f3;
+	font-size: 12px;
+	line-height: 36px;
+}
+.info_left a{
+	color: #21a557;
+}
+
+/*topBar栏*/
+.topBar{
+	height: 89px;
+	background-color: #fff;
+}
+.top_product .edu{
+	font-family: Gill Sans MT;
+	font-size: 28px;
+	color: #39a030;
+	font-weight: bold;
+	width: 70px;
+	display: inline-block;
+	margin-top: 47px;
+	margin-right: 6px;
+}
+.top_product .border{
+	margin-top: 53px;
+	height: 19px;
+	border: 1px solid #39a030;
+}
+.top_product .pro{
+	font-size: 22px;
+	display: inline-block;
+	margin-top: 47px;
+	margin-left: 13px;
+}
+.top_follow button{
+	width: 54px;
+	height: 21px;
+	background: url(C:/Users/Administrator/Desktop/余政辉大作业/images/follow_btn.png) no-repeat left center;
+	margin-top: 53px;
+	margin-left: 31px;
+}
+.top_follow span{
+	float: right;
+	height: 89px;
+	margin-top: 55px;
+	margin-left: 14px;
+	font-size: 12px;
+}
+
+
+.top_right{
+	height: 89px;
+	font-size: 16px;
+}
+.top_right a{
+	display: inline-block;
+	margin: 55px 0 0 55px;
+}
+.top_right a:hover{
+	color: #39a030;
+}
+.top_right img{
+	margin: 20px 14px 0 29px;
+}
+
+
+/*introduce栏*/
+.introduce{
+	height: 297px;
+	margin-top: 61px;
+}
+
+.introduce div{
+	float: left;
+	width: 320px;
+}
+.introduce .book{
+	margin-left: 100px;
+	margin-right: 100px;
+}
+.introduce h3{
+	font-size: 22px;
+	text-indent: 100px;
+	margin-bottom: 20px;
+}
+.introduce img{
+	float: left;
+	margin-right: 20px;
+	margin-top: -35px;
+	display: inline-block;
+}
+.introduce a{
+	display: inline-block;
+	color: #39a030;
+	font-size: 14px;
+	margin-left: 100px;
+	margin-top: 36px;
+}
+.introduce a:hover{
+	text-decoration: underline;
+}
+.introduce p{
+	color: #666666;
+	font-size: 14px;
+	line-height: 24px;
+	display: inline-block;
+	margin-left: 100px;
+	margin-top: -55px;
+}
+
+/*picshow栏*/
+.picshow{
+	height: 220px;
+	margin-top: -20px;
+}
+.picfall li{
+	float: left;
+	display: inline-block;
+	width: 240px;
+	height: 220px;
+}
+
+/*course栏*/
+.course{
+	margin-top: 80px;
+}
+.course-pay{
+	width: 957px;
+}
+.course-pay button{
+	font-size: 20px;
+	width: 200px;
+	height: 50px;
+}
+.product-design{
+	margin-left: 15px;
+}
+.toGreen{/*按钮颜色变绿*/
+	background-color: #39a030;
+	color: #fff;
+}
+.organization{
+	width: 220px;
+	height: 240px;
+	border: 1px solid #dddddd; 
+}
+.course h3{
+	display: block;
+	height: 57px;
+	font-size: 16px;
+	color: #333333;
+	line-height: 57px;
+	text-indent: 23px;
+	border-bottom: 1px solid #dddddd;
+}
+.organization .introduce-video{
+	height: 174px;
+	width: 223px;
+	font-size: 14px;
+	color: #666666;
+	padding: 23px;
+}
+.introduce-video span{
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.hot-show{
+	height: 780px;
+	border: 1px solid #dddddd;
+	margin-top: 21px;
+}
+
+/*vedioshow浮层
+.videoshow{
+	position: fixed;
+	display: none;
+}*/
+
+/*course-list*/
+.course-list{
+	width: 957px;
+	margin-top: 10px;
+}
+
+.course-list-div{
+	width: 222px;
+	height: 227px;
+	border: 1px solid #f1f1f1;
+	font-family: '微软雅黑';
+	padding-bottom: 10px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+.course-list-div:hover{
+	box-shadow: 3px 3px 3px #ccc;
+	cursor: pointer;
+}
+.course-list-img{
+	width: 222px;
+	height: 124px;
+}
+.course-list-div span{
+	margin-left: 5px;
+}
+.course-list-name{
+	font-size: 12px;
+	color: #333333;
+	margin-bottom: 10px;
+	margin-top: 3px;
+	display: block;
+}
+.course-list-provider{
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 10px;
+	display: block;
+}
+.course-list-learnerCount{
+	font-size: 8px;
+	color: #999999;
+	margin-bottom: 10px;
+	height: 16px;
+	padding-right: 5px;
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	text-indent: 18px;
+	background: url(C:/Users/Administrator/Desktop/余政辉大作业/images/person.png) no-repeat 3px center;
+	display: inline-block;
+}
+.course-list-price{
+	font-size: 12px;
+	color: #ff3f00;
+	margin-bottom: 10px;
+	font-weight: bold;	
+	display: block;
+}

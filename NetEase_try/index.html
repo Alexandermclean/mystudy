@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网易大作业</title>
+	<script type="text/javascript" src="js/setHomeSetFav.js" charset="gb2312"></script>
+	<script type="text/javascript" src="js/myfocus-2.0.1.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/mf-pattern/mF_YSlider.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/mf-pattern/mF_YSlider.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript">
+	myFocus.set({
+		id:'picBox',
+		pattern:'mF_fancy',//风格应用的名称
+	    time:3,//切换时间间隔(秒)
+	    trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+	    width:1206,//设置图片区域宽度(像素)
+	    height:460,//设置图片区域高度(像素)
+	    txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
+	})
+	</script>
+</head>
+<body>
+	<!--header栏-->
+	<div class="header">
+		<!--信息提示栏-->
+		<div class="info">
+			<div class="comWidth">
+				<div class="info_left fl">
+					<span>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！&nbsp;<a href="http://study.163.com/smartSpec/intro.htm#/smartSpecIntro" target="_blank">立即查看&gt;</a></span>
+				</div>
+				<div class="info_right fr">
+					<a href="javascript:;">X 不再提醒</a>
+				</div>
+			</div>
+		</div>
+
+		<!--topBar栏-->
+		<div class="topBar">
+			<div class="comWidth">
+				<div class="top_left fl">
+					<div class="top_product fl">
+						<span class="edu fl">EDU</span>
+						<div class="border fl"></div>
+						<span class="pro">网易教育产品部</span>
+					</div>
+					<div class="top_follow fl">
+						<button></button>
+						<span>粉丝 <i>45</i></span>
+					</div>
+				</div>
+				<div class="top_right fr">
+					<a href="http://open.163.com/" target="_blank">网易公开课</a>
+					<a href="http://study.163.com/" target="_blank">云课堂</a>
+					<a href="http://www.icourse163.org/" target="_blank">中国大学MOOC</a>
+					<img src="images/search.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--banner栏-->
+	<div class="ad comWidth" id="picBox">
+			<div class="loading"><img src="images/loading.gif" alt="图片加载中"></div>
+			<div class="pic">
+				<ul>
+					<li><a href="http://open.163.com/" target="_blank"><img src="images/banner1.jpg"></a></li>
+					<li><a href="http://study.163.com/" target="_blank"><img src="images/banner2.jpg"></a></li>
+					<li><a href="http://www.icourse163.org//" target="_blank"><img src="images/banner3.jpg"></a></li>
+				</ul>
+			</div>
+		</div>
+	<!--introduce栏-->
+	<div class="introduce comWidth">
+		<div class="video">
+			<h3>网易公开课</h3>
+			<img src="images/video.png">
+			<p>推出国内外名校公开课，涉及广泛的学科，名校老师认真讲解深度剖析，网易视频公开课频道搭建起强有力的网络视频教学平台。</p>
+			<a href="http://open.163.com/" target="_blank">了解更多&gt;</a>
+		</div>
+		<div class="book">
+			<h3>云课堂</h3>
+			<img src="images/book.png">
+			<p>网易旗下大型在线学习平台，该平台面向学习者提供海量免费、优质课程,创新的个性化学习体验，自由开放的交流互动环境。</p>
+			<a href="http://study.163.com/" target="_blank">了解更多&gt;</a>
+		</div>
+		<div class="net">
+			<h3>中国大学MOOC</h3>
+			<img src="images/net.png">
+			<p>是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人,都可以在这里学习中国最好的大学课程，学完还能获得认证证书。</p>
+			<a href="http://www.icourse163.org/" target="_blank">了解更多&gt;</a>
+		</div>
+	</div>
+	<!--pic栏-->
+	<div class="picshow">
+		<ul class="picfall">
+			<li><img src="images/pic-1.jpg"></li>
+			<li><img src="images/pic-2.jpg"></li>
+			<li><img src="images/pic-3.jpg"></li>
+			<li><img src="images/pic-4.jpg"></li>
+			<li><img src="images/pic-5.jpg"></li>
+		</ul>
+	</div>
+	<!--course栏-->
+	<div class="course comWidth">
+		<div class="course-pay fl">
+			<button class="product-design toGreen" id="product-design-btn">产品设计</button>
+			<button class="program-language" id="program-language-btn">编程语言</button>
+			<div class="course-list" id="course-listtt"></div>
+		</div>
+		<div class="course-hot fr">
+			<div class="organization">
+				<h3>机构介绍</h3>
+				<div class="introduce-video">
+					<span>观看下面的视频来了解吧:</span>
+					<a href="#"><img src="images/video.jpg"></a>
+				</div>
+			</div>
+			<div class="hot-show">
+				<h3>最热排行</h3>
+			</div>
+		</div>
+	</div>
+	<!--<div class="videoshow">
+		<span>请观看以下视频：</span>
+		<video width="900" height="500" controls>
+			<source src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" type="video/mp4">	
+		</video>
+	</div>-->
+</body>
+</html>

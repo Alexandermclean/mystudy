@@ -1,0 +1,139 @@
+/*公用*/
+.comWidth{
+	width: 1000px;
+	margin: 0 auto;
+}
+.leftArea{
+	float: left;
+}
+.rightArea{
+	float: right;
+}
+/*topBar*/
+.topBar{
+	height: 31px; 
+	background-color: #F7F7F7;
+	line-height: 31px;
+}
+.collection{
+	background: url(F:/yuhui/business/image/icon/collection.jpg) no-repeat left center;
+	padding-left: 19px;
+	font-weight: bold;
+}
+.topBar a:hover{
+	color: red;
+}
+
+
+/*logoBar*/
+.logoBar{
+	height: 86px;
+	background-color: #1d7ad9;
+}
+/*logo*/
+.logo{
+	padding-left: 39px;
+	padding-top: 13px;
+}
+/*搜索框*/
+.search_box{
+	width: 430px;
+	padding-top: 23px;
+	padding-left: 183px;
+}
+.search_text{
+	width: 350px;
+	height: 35px;
+	padding: 0 5px;
+	line-height: 35px\9;/*针对所有ie浏览器*/
+}
+.search_btn{
+	width: 70px;
+	height: 35px;
+	font-size: 14px;
+	background-color: #ff8c00;
+	font-family: '微软雅黑';
+	color: #fff;
+}
+/*shopCar*/
+.shopCar{
+	width: 145px;
+	height: 35px;
+	background-color: #ff8c00;
+	margin-top: 23px;
+	font-size: 14px;
+	font-family: '微软雅黑';
+	color: #fff;
+}
+.shopText{
+	background: url(F:/yuhui/business/image/icon/shopCar.png) no-repeat 10px center;
+	width: 87px;
+	height: 100%;
+	border-right: 1px solid #e27a00;
+	line-height: 35px;
+	text-indent: 40px;
+}
+.shopNumber{
+	width: 27px;
+	height: 100%;
+	border-right: 1px solid #ff9c01;
+	line-height: 35px;
+	padding-right: 29px;/*数字变的时候是向左增长的*/
+	text-align: right;
+	background: url(F:/yuhui/business/image/icon/shoptext.png) no-repeat 33px center;
+}
+
+/*navBox导航*/
+.navBox{
+	height: 35px;
+	background-color: #1369c0;
+	color: #fff;
+	
+}
+.shopClass{
+	width: 189px;
+	font-family: '微软雅黑';
+	background: url(F:/yuhui/business/image/icon/shopclass.png) no-repeat 159px 14px;
+}
+.shopClass h3{
+	font-size: 16px;
+	line-height: 35px;
+	text-align: center;
+}
+.nav{
+	line-height: 35px;
+	font-size: 14px;
+}
+.nav li{
+	float: left;
+	display: inline-block;
+	height: 35px;
+	width: 100px;
+	text-align: center;
+}
+.nav li:hover{
+	background-color: #4593fd;
+}
+.nav a{
+	color: #fff;
+	font-family: '微软雅黑';
+}
+
+/*商品列表*/
+.shopClass_show{
+	background-color: #4593fd;
+}
+.shopClass_item{
+	padding: 14px 13px 14px 10px;
+	border-bottom: 1px solid #ccc;
+	line-height: 21px;
+}
+.shopClass_item dt a{
+	font-size: 14px;
+	color: #fff;
+}
+.shopClass_item dd a{
+	font-size: 12px;
+	color: #fff;
+}
+

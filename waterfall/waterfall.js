@@ -11,7 +11,10 @@ $(document).ready(function(){
 				waterfall();
 		}
 	})
-	function waterfall(){
+})
+
+
+function waterfall(){
 	var $boxs=$("#main>div")//选择main下的一级子标签
 	var w=$boxs.eq(0).outerWidth();//width()获取设置的宽度，outerWidth获取border、padding等加起来的宽度
 	var cols=Math.floor($(window).width()/w	);
@@ -46,6 +49,4 @@ function checkScrollSlide(){
 	var documentH=$(window).height();
 	reture(lastBoxdDis<scrollTop+documentH)?true:false;
 }
-
-})
 
