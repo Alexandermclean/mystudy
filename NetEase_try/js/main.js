@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 function loadData(Data_pageNo,Data_type){
 	$.ajax({
-			url: 'http://study.163.com/webDev/couresByCategory.htm',
+			url: 'https://study.163.com/webDev/couresByCategory.htm',
 			type: 'GET',
 			data: {
 				'pageNo': Data_pageNo,
