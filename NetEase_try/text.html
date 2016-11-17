@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>text</title>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script type="text/javascript">
+function loadData(Data_pageNo,Data_type){
+	$.ajax({
+			url: 'http://study.163.com/webDev/hotcouresByCategory.htm',
+			type: 'GET',
+			data: {
+				'pageNo': Data_pageNo,
+				'psize': 20,
+				'type': Data_type,
+				'a': new Date().getTime(),
+			},
+			dataType:'json',
+			success:function(_data){
+				var htmStr='';
+				for(var i=0;i<_data.list.length;i++){
+						if(_data.list[i].price==0){
+							_data.list[i].price='免费';
+						}
+						else{
+							_data.list[i].price='￥'+_data.list[i].price;
+						}
+
+					htmStr+='<div class="course-list-div">'+
+							'<img class="course-list-img" src='+_data.list[i].middlePhotoUrl+'>'+
+							'<span class="course-list-name">'+_data.list[i].name+'</span>'+
+							'<span class="course-list-provider">'+_data.list[i].provider+'</span>'+
+							'<span class="course-list-learnerCount">'+_data.list[i].learnerCount+'</span>'+
+							'<span class="course-list-price">'+_data.list[i].price+'</span>'+
+							'</div>';
+				}
+				$('#course-listtt').append(htmStr);
+			},
+			error:function(jqXHR){
+				console.log(jqXHR.status);
+			},
+		});
+}//ajax数据请求
+	</script>
+</head>
+<body>
+	<div class="hot-course-div">
+		<img class="hot-course-img" src="#">
+		<span class="hot-course-name"></span>
+		<span class="hot-course-learnerCount"></span>
+	</div>
+</body>
+</html>
