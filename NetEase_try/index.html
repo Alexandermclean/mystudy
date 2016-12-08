@@ -8,6 +8,8 @@
 	<script type="text/javascript" src="js/mf-pattern/mF_YSlider.js"></script>
 	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
 	<link rel="stylesheet" type="text/css" href="js/mf-pattern/mF_YSlider.css">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -33,7 +35,7 @@
 					<span>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！&nbsp;<a href="http://study.163.com/smartSpec/intro.htm#/smartSpecIntro" target="_blank">立即查看&gt;</a></span>
 				</div>
 				<div class="info_right fr">
-					<a href="javascript:;">X 不再提醒</a>
+					<a href="javascript:;" class="no-remind">X 不再提醒</a>
 				</div>
 			</div>
 		</div>
@@ -48,8 +50,8 @@
 						<span class="pro">网易教育产品部</span>
 					</div>
 					<div class="top_follow fl">
-						<button></button>
-						<span>粉丝 <i>45</i></span>
+						<button class="follow_btn"></button>
+						<span>粉丝 <i class="fans">45</i></span>
 					</div>
 				</div>
 				<div class="top_right fr">
@@ -61,6 +63,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!--banner栏-->
 	<div class="ad comWidth" id="picBox">
 			<div class="loading"><img src="images/loading.gif" alt="图片加载中"></div>
@@ -106,8 +109,10 @@
 	<!--course栏-->
 	<div class="course comWidth">
 		<div class="course-pay fl">
-			<button class="product-design toGreen" id="product-design-btn">产品设计</button>
-			<button class="program-language" id="program-language-btn">编程语言</button>
+			<div class="double-button">
+				<button class="product-design toGreen" id="product-design-btn">产品设计</button>
+				<button class="program-language" id="program-language-btn">编程语言</button>
+			</div>
 			<div class="course-list" id="course-listtt"></div>
 			<div class="course-page">
 				<img class="course-page-front" src="images/course-page-front.png">
@@ -183,6 +188,20 @@
 					</ol>
 				</li>
 			</ol>
+		</div>
+	</div>
+
+
+<!--遮罩层-->
+	<div class="iframe">
+		<div class="login">
+			<span class="close">×</span>
+			<span class="message">请输入登录信息</span>
+			<div class="input">
+				用户名：<input type="text" class="username"><br>
+				密&nbsp;&nbsp;&nbsp;码：<input type="password" class="password"><br>
+			</div>
+			<button class="go">登录</button>
 		</div>
 	</div>
 </body>

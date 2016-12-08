@@ -46,7 +46,7 @@
 .top_follow button{
 	width: 54px;
 	height: 21px;
-	background: url(C:/Users/Administrator/Desktop/余政辉大作业/images/follow_btn.png) no-repeat left center;
+	background: url(../images/follow_btn.png) no-repeat left center;
 	margin-top: 53px;
 	margin-left: 31px;
 }
@@ -128,7 +128,7 @@
 .picfall li{
 	float: left;
 	display: inline-block;
-	width: 241px;
+	width: 20%;
 	height: 220px;
 }
 
@@ -136,6 +136,9 @@
 .course{
 	margin-top: 80px;
 	height: 1470px;
+}
+.double-button{
+	font-size: 0;
 }
 .course-pay{
 	width: 957px;
@@ -178,14 +181,7 @@
 	margin-bottom: 10px;
 }
 
-.hot-show{
-	border: 1px solid #dddddd;
-	margin-top: 21px;
-}
-.hot-show-list{
-	height: 726px;
-	padding: 20px;
-}
+
 
 /*vedioshow浮层
 .videoshow{
@@ -208,7 +204,7 @@
 	padding-bottom: 10px;
 	float: left;
 	margin-left: 15px;
-	margin-top: 20px;
+	margin-top: 20px;/*111111111111111111111111*/
 }
 .course-list-div:hover{
 	box-shadow: 3px 3px 3px #ccc;
@@ -230,6 +226,10 @@
 	margin-bottom: 10px;
 	margin-top: 3px;
 	display: block;
+	width: 210px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .course-list-provider{
 	font-size: 12px;
@@ -246,7 +246,7 @@
 	border: 1px solid #dddddd;
 	border-radius: 3px;
 	text-indent: 18px;
-	background: url(C:/Users/Administrator/Desktop/余政辉大作业/images/person.png) no-repeat 3px center;
+	background: url(../images/person.png) no-repeat 3px center;
 	display: inline-block;
 }
 .course-list-price{
@@ -256,6 +256,61 @@
 	font-weight: bold;	
 	display: block;
 }
+
+
+.course-list-father{
+	
+}
+.course-list-hover{
+	padding: 13px 13px 0;
+	width: 484px;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: -13px;
+	left: -13px;
+	display: none;
+	z-index: 1000;
+	background-color: #fff;
+}
+.iframe-pic{
+	float: left;
+}
+.iframe-text{
+	float: left;
+	margin-left: 18px;
+}
+.iframe-learnerCount{
+	display: inline-block;
+	margin-bottom: 13px;
+	color: #666666;
+	font-size: 12px;
+	text-indent: 19px;
+	background: url(../images/person.png) no-repeat 3px;
+}
+.iframe-provider{
+	display: block;
+	color: #666666;
+	font-size: 12px;
+	text-indent: 3px;
+}
+.iframe-h1{	
+	font-size: 18px;
+	color: #333;
+	margin-bottom: 17px;
+}
+.iframe-description{
+	float: left;
+	display: block;
+	width: 470px;
+	background-color: #f8f8f8;
+	margin-top: 15px;
+	margin-left: -13px;
+	font-size: 14px;
+	color: #666666;
+	padding: 20px;
+	line-height: 24px;
+}
+
 
 .course-page{
 	margin-top: 110px;
@@ -289,11 +344,58 @@
 	margin-left: 10px;
 	cursor: pointer;
 }
+/*hot-course*/
+.hot-show{
+	border: 1px solid #dddddd;
+	margin-top: 21px;
+}
+.hot-show-list{
+	height: 700px;
+	padding: 20px;
+	overflow: hidden;
+	position: relative;
+}
+.hot-course-div{
+	height: 50px;
+	width: 184px;
+	margin-bottom: 22px;
+}
+.hot-course-img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 12px;
+}
+.hot-course-name{
+	display: block;
+	font-size: 14px;
+	width: 120px;
+	margin-bottom: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.hot-course-name:hover{
+	color: #39a030;
+	cursor: pointer;
+}
+.hot-course-learnerCount{
+	display: inline-block;
+	width: 20px;
+	font-size: 12px;
+	color: #bbbbbb;	
+	background: url(../images/person.png) no-repeat left center;
+	text-indent: 18px;
+	text-align: center;
+}
+.hot-course-move{
+	position: absolute;
+}
 
 /*footer*/
 .footer{
 	height: 182px;
-	width: 1206px;
+	width: 100%;
 	background-color: #2c3339;
 	padding-top: 80px;
 	padding-left: 55px;
@@ -360,3 +462,73 @@
 .footer-weibo{
 	padding-left: 10px;
 }
+
+
+
+
+/*遮罩层*/
+.iframe{
+		/*display: none;
+		width: 100%;
+		height: 100%;*/
+		background-color: #000;
+		opacity: 0.7;
+		filter: alpha(opacity:70);
+		color: #000;
+		font-size: 16px;
+		display: none;
+		z-index: 1002;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.login{
+		width: 400px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 150px;
+		border: 1px solid #fff;
+		background-color: #fff;
+		opacity: 1;
+		filter: alpha(opacity:100);
+		position: fixed;
+		left: 0;
+		right: 0;
+	}
+	.iframe span{
+		display: block;
+	}
+	.close{
+		float: right;
+		margin-right: 10px;
+		cursor: pointer;
+	}
+	.message{
+		padding-top: 50px;
+		padding-left: 20px;	
+	}
+	.go{
+		width: 80px;
+		height: 30px;
+		margin-left: 280px;
+		margin-top: 40px;
+		background-color: #21a557;
+		font-size: 16px;
+		text-align: center;
+		letter-spacing: 8px;
+		text-indent: 8px;
+	}
+	.input{
+		margin-left: 100px;
+		margin-top: 30px;
+
+
+	}
+	.input input{
+		margin-bottom: 20px;
+		width: 150px;
+		padding-left: 5px;
+		border: 1px solid #ccc;
+		height: 20px;
+	}

@@ -2,55 +2,135 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>text</title>
-	<style type="text/css">
-		
-	</style>
+	<title>banner</title>
+	<script type="text/javascript" src="js/setHomeSetFav.js" charset="gb2312"></script>
+	<script type="text/javascript" src="js/myfocus-2.0.1.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="js/mf-pattern/mF_YSlider.js"></script>
 	<script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<style type="text/css">
+	*{padding: 0; margin: 0;}
+	.father{
+		position: relative;
+		margin-top: 50px;
+		margin-left: 50px;
+	}
+	.iframe{
+		padding: 13px 13px 0;
+		width: 484px;
+		border: 1px solid #ccc;
+		position: absolute;
+		top: -13px;
+		left: -13px;
+		display: none;
+	}
+	.content{
+		width: 222px;
+		height: 227px;
+		background-color: yellow;
+		display: inline-block;
+	}
+	.iframe-pic{
+		float: left;
+	}
+	.iframe-text{
+		float: left;
+		margin-left: 18px;
+	}
+	.iframe-learnerCount{
+		display: inline-block;
+		margin-bottom: 13px;
+		color: #666666;
+		font-size: 12px;
+		text-indent: 19px;
+		background: url(images/person.png) no-repeat 3px;
+	}
+	.iframe-provider{
+		display: block;
+		color: #666666;
+		font-size: 12px;
+		text-indent: 3px;
+	}
+	.iframe-h1{	
+		font-size: 18px;
+		color: #333;
+		margin-bottom: 17px;
+	}
+	.iframe-description{
+		float: left;
+		display: block;
+		width: 470px;
+		background-color: #f8f8f8;
+		margin-top: 15px;
+		margin-left: -13px;
+		font-size: 14px;
+		color: #666666;
+		padding: 20px;
+		line-height: 24px;
+	}
+	</style>
 	<script type="text/javascript">
-function loadData(Data_pageNo,Data_type){
-	$.ajax({
-			url: 'http://study.163.com/webDev/hotcouresByCategory.htm',
-			type: 'GET',
-			data: {
-				'pageNo': Data_pageNo,
-				'psize': 20,
-				'type': Data_type,
-				'a': new Date().getTime(),
-			},
-			dataType:'json',
-			success:function(_data){
-				var htmStr='';
-				for(var i=0;i<_data.list.length;i++){
-						if(_data.list[i].price==0){
-							_data.list[i].price='免费';
-						}
-						else{
-							_data.list[i].price='￥'+_data.list[i].price;
-						}
-
-					htmStr+='<div class="course-list-div">'+
-							'<img class="course-list-img" src='+_data.list[i].middlePhotoUrl+'>'+
-							'<span class="course-list-name">'+_data.list[i].name+'</span>'+
-							'<span class="course-list-provider">'+_data.list[i].provider+'</span>'+
-							'<span class="course-list-learnerCount">'+_data.list[i].learnerCount+'</span>'+
-							'<span class="course-list-price">'+_data.list[i].price+'</span>'+
-							'</div>';
-				}
-				$('#course-listtt').append(htmStr);
-			},
-			error:function(jqXHR){
-				console.log(jqXHR.status);
-			},
+	$(document).ready(function() {
+		loadData();
+		$('.content').mouseover(function() {
+			$('.iframe').css('display','block');
 		});
+		$('.iframe').mouseover(function() {
+			$('.iframe').css('display','block');
+		});
+		$('.iframe').mouseout(function() {
+			$('.iframe').css('display','none');
+		});
+	});
+	function loadData(){
+	$.ajax({
+		url: 'https://study.163.com/webDev/couresByCategory.htm',
+		type: 'GET',
+		data: {
+			'pageNo': 1,
+			'psize': 20,
+			'type': 10,
+			'a': new Date().getTime(),
+		},
+		dataType:'json',
+		success:function(_data){
+			var htmStr='';
+			for(var i=0;i<_data.list.length;i++){
+				if(_data.list[i].price==0){
+					_data.list[i].price='免费';
+				}
+				else{
+					_data.list[i].price='￥'+_data.list[i].price;
+				}
+			}
+
+			$('.iframe-pic').attr('src',_data.list[1].middlePhotoUrl);
+			$('.iframe-h1').html(_data.list[1].name);
+			$('.iframe-learnerCount').html(_data.list[1].learnerCount+'人在学');
+			$('.iframe-provider').html('发布者：'+_data.list[1].provider);
+			$('.iframe-description').html(_data.list[1].description);
+			console.log(_data.list[4]);
+		},
+		error:function(jqXHR){
+			console.log(jqXHR.status);
+		},
+	});
 }//ajax数据请求
+		
 	</script>
 </head>
 <body>
-	<div class="hot-course-div">
-		<img class="hot-course-img" src="#">
-		<span class="hot-course-name"></span>
-		<span class="hot-course-learnerCount"></span>
+	<div class="father">
+		<div class="content"></div>
+		<div class="iframe">
+			<img class="iframe-pic">
+			<div class="iframe-text">
+				<h1 class="iframe-h1"></h1>
+				<span class="iframe-learnerCount"></span>
+				<span class="iframe-provider"></span>
+			</div>
+			<p class="iframe-description"></p>
+		</div>
 	</div>
 </body>
 </html>
