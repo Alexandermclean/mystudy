@@ -1,5 +1,5 @@
-###添加声明：
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+###网页发布地址：
+http://vissaan.com/mystudy/company-web/company-web.html
 
 ###焦点图规则：
 叫地图初始化的ID与图片列表最外层ID一致；图片列表需被包含在class为pic的div
