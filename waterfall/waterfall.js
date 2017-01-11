@@ -32,8 +32,8 @@ function waterfall(){
 			var minHIndex=$.inArray(minH,hArr);//找到最小高度的图片在数组中的索引
 			$(value).css({
 				'position':'absolute',
-				'top':minH+'px',
-				'left':minHIndex*w+'px',
+				'top':minH,
+				'left':minHIndex*w,
 			})
 			hArr[minHIndex]+=h;//修改数组，避免图片重叠
 		}
