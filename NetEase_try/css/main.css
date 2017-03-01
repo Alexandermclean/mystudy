@@ -29,7 +29,7 @@
 	font-weight: bold;
 	width: 70px;
 	display: inline-block;
-	margin-top: 47px;
+	margin-top: 43px;
 	margin-right: 6px;
 }
 .top_product .border{
@@ -129,7 +129,10 @@
 	float: left;
 	display: inline-block;
 	width: 20%;
-	height: 220px;
+}
+.picfall img{
+	width: 100%;
+	height: 220px;	
 }
 
 /*course栏*/
@@ -171,7 +174,7 @@
 }
 .organization .introduce-video{
 	height: 174px;
-	width: 223px;
+	width: 218px;
 	font-size: 14px;
 	color: #666666;
 	padding: 23px;
@@ -398,10 +401,10 @@
 	width: 100%;
 	background-color: #2c3339;
 	padding-top: 80px;
-	padding-left: 55px;
 }
 .footer-rights{
 	margin-right: 250px;
+	margin-left: 55px;
 }
 .footer_product{
 	margin-bottom: 25px;
